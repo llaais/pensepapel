@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos — PensePapel</title>
+<meta name="description" content="Catálogo completo de papelaria sustentável: canetas, cadernos, organização e arte.">
+<link rel="stylesheet" href="../CSS/estrutura.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-interno">
+    <a href="index.html" class="marca">PensePapel<span class="ponto">.</span></a>
+
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="produtos.html" class="ativo">Produtos</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <div class="acoes-topo">
+      <button class="btn-carrinho" onclick="abrirCarrinho()">
+        🛒 Carrinho
+        <span class="contador-carrinho" style="display:none">0</span>
+      </button>
+      <button class="menu-mobile-btn" aria-label="Abrir menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="faixa-busca container" style="padding-top:50px;">
+  <h2>Catálogo completo</h2>
+  <p class="sub">56 produtos de papelaria sustentável, prontos para a sua mesa</p>
+
+  <div class="busca-caixa">
+    <input type="text" id="campoBusca" placeholder="Buscar por nome ou material..." onkeyup="buscarProdutos()">
+    <span class="icone-lupa">🔍</span>
+  </div>
+
+  <div class="filtros">
+    <button onclick="filtrarCategoria('todos', this)" class="selecionado">Todos</button>
+    <button onclick="filtrarCategoria('caneta', this)">Canetas</button>
+    <button onclick="filtrarCategoria('caderno', this)">Cadernos</button>
+    <button onclick="filtrarCategoria('organizacao', this)">Organização</button>
+    <button onclick="filtrarCategoria('arte', this)">Arte</button>
+  </div>
+</section>
+
+<section class="container">
+  <div class="grade-produtos" id="gradeProdutos"></div>
+  <p class="sem-resultado" id="semResultado">Nenhum produto encontrado com esse termo. Tente outra palavra-chave.</p>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="rodape-grade">
+      <div>
+        <div class="rodape-marca">PensePapel</div>
+        <p>Papelaria criada para durar na sua rotina e deixar a menor marca possível no planeta.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sua conta</h4>
+        <ul>
+          <li><a href="cadastro.html">Criar cadastro</a></li>
+          <li><a href="checkout.html">Finalizar pedido</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-baixo">© 2026 PensePapel — Criatividade em cada folha.</div>
+  </div>
+</footer>
+
+<div class="carrinho-fundo" id="carrinhoFundo" onclick="fecharCarrinho()"></div>
+<aside class="carrinho-painel" id="carrinhoPainel">
+  <div class="carrinho-cabecalho">
+    <h2>Seu carrinho</h2>
+    <button class="carrinho-fechar" onclick="fecharCarrinho()" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="carrinho-itens" id="listaCarrinho"></div>
+  <div class="carrinho-rodape" id="rodapeCarrinho">
+    <div class="linha-total"><span>Total</span><span>R$ 0,00</span></div>
+    <button class="btn-finalizar" disabled onclick="irParaCheckout()">Finalizar pedido</button>
+  </div>
+</aside>
+
+<div class="modal-fundo" id="modalProduto">
+  <div class="modal-caixa">
+    <button class="modal-fechar" onclick="fecharModalProduto()" aria-label="Fechar">×</button>
+    <div id="conteudoModal"></div>
+  </div>
+</div>
+
+<script src="../JS/produtos.js"></script>
+<script src="../JS/carrinho.js"></script>
+<script src="../JS/catalogo.js"></script>
+</body>
+</html>

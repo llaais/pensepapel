@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PensePapel — Papelaria com consciência</title>
+<meta name="description" content="Papelaria sustentável: canetas, cadernos, organização e arte feitos com materiais de baixo impacto ambiental.">
+<link rel="stylesheet" href="../CSS/estrutura.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-interno">
+    <a href="index.html" class="marca">PensePapel<span class="ponto">.</span></a>
+
+    <nav class="menu">
+      <a href="index.html" class="ativo">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+
+    <div class="acoes-topo">
+      <button class="btn-carrinho" onclick="abrirCarrinho()">
+        🛒 Carrinho
+        <span class="contador-carrinho" style="display:none">0</span>
+      </button>
+      <button class="menu-mobile-btn" aria-label="Abrir menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <video autoplay muted loop playsinline poster="https://images.pexels.com/videos/856162/free-video-856162.jpg?auto=compress&cs=tinysrgb&h=900">
+    <source src="https://videos.pexels.com/video-files/856162/856162-hd_1920_1080_25fps.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-conteudo">
+    <span class="hero-rotulo">Papelaria de baixo impacto</span>
+    <h1>Cada folha conta<br>uma <span>história verde</span></h1>
+    <p>Canetas, cadernos e materiais de arte feitos com bioplástico, papel reciclado e fibras naturais — sem abrir mão de escrever bem.</p>
+    <div class="hero-ctas">
+      <a href="produtos.html" class="btn-primario">Ver catálogo completo</a>
+      <a href="sobre.html" class="btn-secundario">Nossa missão</a>
+    </div>
+  </div>
+</section>
+<div class="borda-rasgada"></div>
+
+<section class="faixa-busca container">
+  <h2>Encontre seu próximo material</h2>
+  <p class="sub">Mais de 50 itens entre canetas, cadernos, organização e arte</p>
+
+  <div class="busca-caixa">
+    <input type="text" id="campoBusca" placeholder="Buscar por nome ou material..." onkeyup="buscarProdutos()">
+    <span class="icone-lupa">🔍</span>
+  </div>
+
+  <div class="filtros">
+    <button onclick="filtrarCategoria('todos', this)" class="selecionado">Todos</button>
+    <button onclick="filtrarCategoria('caneta', this)">Canetas</button>
+    <button onclick="filtrarCategoria('caderno', this)">Cadernos</button>
+    <button onclick="filtrarCategoria('organizacao', this)">Organização</button>
+    <button onclick="filtrarCategoria('arte', this)">Arte</button>
+  </div>
+</section>
+
+<section class="container">
+  <div class="grade-produtos" id="gradeProdutos"></div>
+  <p class="sem-resultado" id="semResultado">Nenhum produto encontrado com esse termo. Tente outra palavra-chave.</p>
+
+  <div style="text-align:center; padding:10px 0 50px;">
+    <a href="produtos.html" class="btn-primario">Ver catálogo completo →</a>
+  </div>
+</section>
+
+<section class="secao-comparacao container">
+  <h2>Comparativo de materiais</h2>
+  <p class="sub">Como cada linha de produto se compara em origem e reciclabilidade</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <tr>
+        <th>Linha</th>
+        <th>Material principal</th>
+        <th>Reciclável</th>
+        <th>Selo</th>
+      </tr>
+      <tr>
+        <td>Canetas</td>
+        <td>Bioplástico vegetal / bambu</td>
+        <td>Sim</td>
+        <td>Biodegradável</td>
+      </tr>
+      <tr>
+        <td>Cadernos</td>
+        <td>Papel reciclado certificado FSC</td>
+        <td>Sim</td>
+        <td>Biodegradável</td>
+      </tr>
+      <tr>
+        <td>Organização</td>
+        <td>Fibra de bambu / cortiça natural</td>
+        <td>Sim</td>
+        <td>Biodegradável</td>
+      </tr>
+      <tr>
+        <td>Arte</td>
+        <td>Pigmentos minerais / cera de soja</td>
+        <td>Sim</td>
+        <td>Biodegradável</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="rodape-grade">
+      <div>
+        <div class="rodape-marca">PensePapel</div>
+        <p>Papelaria criada para durar na sua rotina e deixar a menor marca possível no planeta.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sua conta</h4>
+        <ul>
+          <li><a href="cadastro.html">Criar cadastro</a></li>
+          <li><a href="checkout.html">Finalizar pedido</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-baixo">© 2026 PensePapel — Criatividade em cada folha.</div>
+  </div>
+</footer>
+
+<!-- Carrinho lateral -->
+<div class="carrinho-fundo" id="carrinhoFundo" onclick="fecharCarrinho()"></div>
+<aside class="carrinho-painel" id="carrinhoPainel">
+  <div class="carrinho-cabecalho">
+    <h2>Seu carrinho</h2>
+    <button class="carrinho-fechar" onclick="fecharCarrinho()" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="carrinho-itens" id="listaCarrinho"></div>
+  <div class="carrinho-rodape" id="rodapeCarrinho">
+    <div class="linha-total"><span>Total</span><span>R$ 0,00</span></div>
+    <button class="btn-finalizar" disabled onclick="irParaCheckout()">Finalizar pedido</button>
+  </div>
+</aside>
+
+<!-- Modal de produto -->
+<div class="modal-fundo" id="modalProduto">
+  <div class="modal-caixa">
+    <button class="modal-fechar" onclick="fecharModalProduto()" aria-label="Fechar">×</button>
+    <div id="conteudoModal"></div>
+  </div>
+</div>
+
+<script src="../JS/produtos.js"></script>
+<script src="../JS/carrinho.js"></script>
+<script src="../JS/catalogo.js"></script>
+<script>
+  limiteExibicao = 8;
+  document.addEventListener('DOMContentLoaded', renderizarProdutos);
+</script>
+</body>
+</html>

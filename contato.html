@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — PensePapel</title>
+<link rel="stylesheet" href="../CSS/estrutura.css">
+<style>
+  .pagina-form{
+    max-width:520px;
+    margin:0 auto;
+    padding:60px 24px 90px;
+  }
+
+  .pagina-form h1{
+    font-family:var(--fonte-mao);
+    font-size:2.2rem;
+    margin-bottom:8px;
+    text-align:center;
+  }
+
+  .pagina-form .sub{
+    text-align:center;
+    color:#6b6760;
+    margin-bottom:30px;
+  }
+
+  .cartao-form{
+    background:var(--branco);
+    border:2px solid var(--tinta);
+    border-radius:16px;
+    padding:30px;
+  }
+
+  .campo{ margin-bottom:16px; }
+
+  .campo label{
+    display:block;
+    font-size:.85rem;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  .campo input,
+  .campo textarea{
+    width:100%;
+    padding:12px 14px;
+    border:2px solid var(--linha);
+    border-radius:10px;
+    font-family:var(--fonte-corpo);
+    font-size:.95rem;
+    resize:vertical;
+  }
+
+  .campo input:focus,
+  .campo textarea:focus{
+    outline:none;
+    border-color:var(--terracota);
+  }
+
+  .mensagem-ok{
+    display:none;
+    text-align:center;
+    padding:14px;
+    background:#e8f3ec;
+    border:2px solid var(--musgo);
+    border-radius:10px;
+    color:var(--musgo);
+    font-weight:600;
+    margin-top:16px;
+  }
+
+  .contatos-rapidos{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    margin-top:28px;
+    font-size:.9rem;
+    color:#6b6760;
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-interno">
+    <a href="index.html" class="marca">PensePapel<span class="ponto">.</span></a>
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="contato.html" class="ativo">Contato</a>
+    </nav>
+    <div class="acoes-topo">
+      <button class="btn-carrinho" onclick="abrirCarrinho()">
+        🛒 Carrinho
+        <span class="contador-carrinho" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="pagina-form">
+  <h1>Fale com a gente</h1>
+  <p class="sub">Dúvidas, trocas ou parcerias — respondemos em até 1 dia útil</p>
+
+  <div class="cartao-form">
+    <form id="formContato">
+      <div class="campo">
+        <label for="nomeContato">Nome</label>
+        <input type="text" id="nomeContato" required placeholder="Seu nome">
+      </div>
+      <div class="campo">
+        <label for="emailContato">E-mail</label>
+        <input type="email" id="emailContato" required placeholder="voce@email.com">
+      </div>
+      <div class="campo">
+        <label for="mensagemContato">Mensagem</label>
+        <textarea id="mensagemContato" rows="5" required placeholder="Como podemos ajudar?"></textarea>
+      </div>
+      <button type="submit" class="btn-finalizar">Enviar mensagem</button>
+    </form>
+    <div class="mensagem-ok" id="mensagemOk">✓ Mensagem enviada (demonstração)</div>
+  </div>
+
+  <div class="contatos-rapidos">
+    <span>📧 contato@pensepapel.com.br</span>
+    <span>📱 (11) 4000-0000</span>
+  </div>
+</section>
+
+<div class="carrinho-fundo" id="carrinhoFundo" onclick="fecharCarrinho()"></div>
+<aside class="carrinho-painel" id="carrinhoPainel">
+  <div class="carrinho-cabecalho">
+    <h2>Seu carrinho</h2>
+    <button class="carrinho-fechar" onclick="fecharCarrinho()" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="carrinho-itens" id="listaCarrinho"></div>
+  <div class="carrinho-rodape" id="rodapeCarrinho">
+    <div class="linha-total"><span>Total</span><span>R$ 0,00</span></div>
+    <button class="btn-finalizar" disabled onclick="irParaCheckout()">Finalizar pedido</button>
+  </div>
+</aside>
+
+<script src="../JS/produtos.js"></script>
+<script src="../JS/carrinho.js"></script>
+<script>
+document.getElementById('formContato').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('mensagemOk').style.display = 'block';
+  this.reset();
+});
+</script>
+</body>
+</html>

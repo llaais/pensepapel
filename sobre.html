@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre — PensePapel</title>
+<link rel="stylesheet" href="../CSS/estrutura.css">
+<style>
+  .pagina-sobre{
+    max-width:780px;
+    margin:0 auto;
+    padding:60px 24px 80px;
+  }
+
+  .pagina-sobre h1{
+    font-family:var(--fonte-mao);
+    font-size:2.6rem;
+    margin-bottom:20px;
+  }
+
+  .pagina-sobre p{
+    line-height:1.75;
+    font-size:1.02rem;
+    color:#4a463e;
+    margin-bottom:18px;
+  }
+
+  .valores{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin:36px 0;
+  }
+
+  .valor-card{
+    background:var(--branco);
+    border:2px solid var(--tinta);
+    border-radius:14px;
+    padding:22px;
+  }
+
+  .valor-card .icone{ font-size:1.8rem; margin-bottom:10px; }
+  .valor-card h3{ font-size:1rem; margin-bottom:6px; }
+  .valor-card p{ font-size:.88rem; margin-bottom:0; }
+
+  @media (max-width:700px){
+    .valores{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-interno">
+    <a href="index.html" class="marca">PensePapel<span class="ponto">.</span></a>
+    <nav class="menu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html" class="ativo">Sobre</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="cadastro.html">Cadastro</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="acoes-topo">
+      <button class="btn-carrinho" onclick="abrirCarrinho()">
+        🛒 Carrinho
+        <span class="contador-carrinho" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="pagina-sobre">
+  <h1>Papel tem origem.<br>A nossa começa na floresta.</h1>
+  <p>A PensePapel nasceu de uma pergunta simples: por que a papelaria, que devia inspirar ideias novas, ainda depende tanto de plástico virgem e madeira sem origem rastreada?</p>
+  <p>Desde 2021 trabalhamos só com fornecedores que comprovam a origem de cada material — papel reciclado certificado, bioplástico vegetal, fibra de bambu e pigmentos minerais. Cada produto do catálogo carrega o selo de biodegradável quando isso é garantido por laudo técnico.</p>
+
+  <div class="valores">
+    <div class="valor-card">
+      <div class="icone">🌱</div>
+      <h3>Origem rastreada</h3>
+      <p>Todo fornecedor passa por auditoria de materiais antes de entrar no catálogo.</p>
+    </div>
+    <div class="valor-card">
+      <div class="icone">♻️</div>
+      <h3>Embalagem mínima</h3>
+      <p>Enviamos em caixas reaproveitadas, sem plástico bolha.</p>
+    </div>
+    <div class="valor-card">
+      <div class="icone">✏️</div>
+      <h3>Feito para durar</h3>
+      <p>Preferimos produtos recarregáveis a descartáveis sempre que possível.</p>
+    </div>
+  </div>
+
+  <p>Se você chegou até aqui, já faz parte dessa mudança de hábito. Obrigado por escolher pensar antes de escrever.</p>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="rodape-grade">
+      <div>
+        <div class="rodape-marca">PensePapel</div>
+        <p>Papelaria criada para durar na sua rotina e deixar a menor marca possível no planeta.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sua conta</h4>
+        <ul>
+          <li><a href="cadastro.html">Criar cadastro</a></li>
+          <li><a href="checkout.html">Finalizar pedido</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-baixo">© 2026 PensePapel — Criatividade em cada folha.</div>
+  </div>
+</footer>
+
+<div class="carrinho-fundo" id="carrinhoFundo" onclick="fecharCarrinho()"></div>
+<aside class="carrinho-painel" id="carrinhoPainel">
+  <div class="carrinho-cabecalho">
+    <h2>Seu carrinho</h2>
+    <button class="carrinho-fechar" onclick="fecharCarrinho()" aria-label="Fechar carrinho">×</button>
+  </div>
+  <div class="carrinho-itens" id="listaCarrinho"></div>
+  <div class="carrinho-rodape" id="rodapeCarrinho">
+    <div class="linha-total"><span>Total</span><span>R$ 0,00</span></div>
+    <button class="btn-finalizar" disabled onclick="irParaCheckout()">Finalizar pedido</button>
+  </div>
+</aside>
+
+<script src="../JS/produtos.js"></script>
+<script src="../JS/carrinho.js"></script>
+</body>
+</html>
