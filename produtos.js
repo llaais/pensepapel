@@ -1,4 +1,5 @@
-
+// Catálogo de produtos PensePapel
+// Imagens via Picsum Photos (fotos reais, seed fixa por produto = imagem estável)
 const PRODUTOS = [
   {
     id: 1,

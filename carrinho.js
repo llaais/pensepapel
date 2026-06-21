@@ -1,3 +1,9 @@
+// =========================================================
+// PensePapel — carrinho.js
+// Lógica do carrinho de compras, persistida em localStorage
+// para funcionar entre home.html, produtos.html e checkout.html
+// =========================================================
+
 const CHAVE_CARRINHO = 'pensepapel_carrinho';
 
 function obterCarrinho(){

@@ -1,3 +1,8 @@
+// =========================================================
+// PensePapel — catalogo.js
+// Renderiza a grade de produtos, busca, filtros e modal de detalhe
+// =========================================================
+
 let filtroAtual = 'todos';
 let limiteExibicao = null; // null = mostra todos; usado na home para mostrar só uma amostra
 
